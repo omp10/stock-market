@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+
+body {
+  @apply bg-[#0b1020] text-white min-h-screen font-sans;
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0);
+  background-size: 22px 22px;
+}
+
+.card {
+  @apply bg-[#0f172a]/80 border border-white/10 backdrop-blur rounded-2xl shadow-lg;
+}
+
+.btn {
+  @apply inline-flex items-center justify-center rounded-lg px-4 py-2 font-medium transition;
+}
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-lg px-4 py-2 font-medium transition bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-400 border border-cyan-500/40;
+}
+.btn-ghost {
+  @apply inline-flex items-center justify-center rounded-lg px-4 py-2 font-medium transition border border-white/10 bg-transparent hover:bg-white/10;
+}
+
+.input {
+  @apply w-full rounded-lg bg-black/30 border border-white/10 px-3 py-2 outline-none focus:ring-2 focus:ring-cyan-400/50;
+}
