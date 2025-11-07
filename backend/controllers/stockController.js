@@ -21,3 +21,14 @@ export const getStocks = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
+export const deleteStock = async (req, res) => {
+  try {
+    const { name } = req.params;
+    const s = await Stock.findOneAndDelete({ user: req.user.id, name });
+    if (!s) return res.status(404).json({ message: "Stock not found" });
+    res.json({ ok: true });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};

@@ -57,4 +57,12 @@ export const api = {
     });
     return parseResponse(res);
   },
+
+  async deleteStock(token, name) {
+    const res = await fetch(`${BASE_URL}/api/stocks/${encodeURIComponent(name)}`, {
+      method: "DELETE",
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    return parseResponse(res);
+  },
 };
