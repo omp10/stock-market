@@ -3,8 +3,12 @@ import Stock from "../models/Stock.js";
 export const addStock = async (req, res) => {
   try {
     const { name } = req.body;
-    if (!/^[A-Z]{1,12}$/.test(name))
-      return res.status(400).json({ message: "Use 1–12 uppercase letters (e.g. AAPL, RELIANCE)" });
+    
+    // ✅ Allow only 1–5 uppercase letters (A–Z)
+    if (!/^[A-Z]{1,5}$/.test(name))
+      return res.status(400).json({ 
+        message: "Stock name must be 1–5 uppercase letters (e.g. AAPL, TCS, INFY)" 
+      });
 
     const stock = await Stock.create({ user: req.user.id, name });
     res.json(stock);
